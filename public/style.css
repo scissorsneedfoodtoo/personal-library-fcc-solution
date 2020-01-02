@@ -1,0 +1,62 @@
+body {
+  font-size: 1.2rem;
+}
+
+.border {
+  border-style: inset;
+  border-width: 1px;
+  margin: 10px;
+}
+
+#sampleui {
+  max-width: 450px;
+  margin-left: 5%;
+  height: 100%;
+}
+
+#sampleposting {
+  max-width: 450px;
+  text-align: center;
+  margin-left: 5%;
+}
+
+#userstories {
+  margin-left: 5%;
+}
+
+form {
+  padding: 5px;
+}
+
+
+.tftable {
+  color:#333333;
+  width: 60%;
+  border-width: 1px;
+  border-color: #a9a9a9;
+  border-collapse: collapse;
+}
+
+.tftable th {
+  background-color:#b8b8b8;
+  border-width: 1px;
+  padding: 8px;
+  border-style: solid;
+  border-color: #a9a9a9;
+  text-align:left;
+}
+
+.tftable .grey-column {
+  background-color:#dcdcdc;
+}
+
+.tftable tr {
+  background-color:#ffffff;
+}
+
+.tftable td {
+  border-width: 1px;
+  padding: 8px;
+  border-style: solid;
+  border-color: #a9a9a9;
+}
