@@ -3,7 +3,9 @@
 *
 *       FILL IN EACH FUNCTIONAL TEST BELOW COMPLETELY
 *       -----[Keep the tests in the same order!]-----
-*       
+*       If additional tests are added, keep them at the very end
+*
+*
 */
 
 const chaiHttp = require('chai-http');

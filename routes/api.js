@@ -29,6 +29,7 @@ module.exports = function (app) {
         });
       });
     })
+
     .post(function (req, res) {
       const title = req.body.title;
 
@@ -51,6 +52,7 @@ module.exports = function (app) {
         });
       }
     })
+
     .delete((req, res) => {
       MongoClient.connect(CONNECTION_STRING, { useUnifiedTopology: true }, (err, client) => {
         const db = client.db('personalLibrary');
@@ -78,8 +80,9 @@ module.exports = function (app) {
           }
         });
       });
-      // format: { "bookid": bookId, "title": bookTitle, "comments": [comment, comment,...] }
+      // Format: { "_id": bookId, "title": bookTitle, "comments": [comment, comment,...] }
     })
+
     .post((req, res) => {
       const bookId = req.params.id;
       // Must convert param string to Mongo object Id to search for it in db
@@ -102,6 +105,7 @@ module.exports = function (app) {
           });
       });
     })
+    
     .delete((req, res) => {
       const bookId = req.params.id;
       // Must convert param string to Mongo object Id to search for it in db

@@ -5,12 +5,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/public/style.css">
+    <link rel="stylesheet" href="../public/style.css">
   </head>
   <body>
     <header>
       <h1>
-        Quality Assurance 3 - Personal Library
+        Quality Assurance 3: Personal Library
       </h1>
     </header>
     <br>
@@ -18,29 +18,29 @@
       <h2>User stories:</h2>
       <ol>
         <li>
-          I can <strong>POST</strong> a <code>title</code> to <code>/api/books</code>title</code> to add a book to the collection and return an object with the <code>title</code> and a unique <code>_id</code> as a response. If there is no title in the body of the request, return the message "Missing title". Return the message "Title already exists" if the book has already been added to the collection.
+          I can <strong>POST</strong> a <code>title</code> to <code>/api/books</code>title</code> to add a book to the collection and return an object with the <code>title</code> and a unique <code>_id</code> as a response. If there is no title in the body of the request, return "Missing title". Return "Title already exists" if the book has already been added to the collection.
         </li>
         <li>
           I can <strong>GET</strong> <code>/api/books</code> to retrieve an array of all book objects containing a <code>title</code>, <code>_id</code>, and <code>commentCount</code>.
         </li>
         <li>
-          I can <strong>GET</strong> <code>/api/books/{_id}</code> to retrieve a single book object containing a <code>title</code>, <code>_id</code>, and an array of <code>comments</code> (or an empty array if there are no comments). If I try to request a book that doesn't exist in the collection, return the message "No book exists".
+          I can <strong>GET</strong> <code>/api/books/{_id}</code> to retrieve a single book object containing a <code>title</code>, <code>_id</code>, and an array of <code>comments</code> (or an empty array if there are no comments). If I try to request a book that doesn't exist in the collection, return "No book exists".
         </li>
         <li>
-          I can <strong>POST</strong> a <code>comment</code> to <code>/api/books/{_id}</code> to add a comment to a book and return a book object similar to <strong>GET</strong> <code>/api/books/{_id}</code>. Return the message "Missing comment" if there is no comment in the request body.
+          I can <strong>POST</strong> a <code>comment</code> to <code>/api/books/{_id}</code> to add a comment to a book and return a book object similar to <strong>GET</strong> <code>/api/books/{_id}</code>. Return "Missing comment" if there is no comment in the request body.
         </li>
         <li>
-          I can <strong>DELETE</strong> <code>/api/books/{_id}</code> to remove a book from the collection. Return the message "Deletion successful" if you successfully removed the book.
+          I can <strong>DELETE</strong> <code>/api/books/{_id}</code> to remove a book from the collection. Return "Deletion successful" if you successfully removed the book.
         </li>
         <li>
           I can send a <strong>DELETE</strong> request to <code>/api/books</code> to remove all books from the collection. 
-          Return the message "Complete deletion successful" if you successfully removed all books.
+          Return "Complete deletion successful" if you successfully removed all books.
         </li>
         <li>All 9 required functional tests are complete and passing.</li>
       </ol>
       <br>
       <table class="tftable" border="1">
-        <tr><th><strong>API</strong></th><th><strong>GET</stroth><th><strong>POST</strong></th><th><strong>DELETE</strong></th></tr>
+        <tr><th><strong>API</strong></th><th><strong>GET</strong><th><strong>POST</strong></th><th><strong>DELETE</strong></th></tr>
         <tr><td class="grey-column"><strong>/api/books</strong></td><td>List all books</td><td>Add a new book</td><td>Delete all books</td></tr>
         <tr><td class="grey-column"><strong>/api/books/1234</strong></td><td>Show book <i>1234</i></td><td>Add comment to <i>1234</i></td><td>Delete <i>1234</i></td></tr>
       </table>        
@@ -56,7 +56,7 @@
       </form>
       <form action="" method="post" id="commentTest" class="border">
         <h4>Test post to /api/books/{bookid}</h4>
-        BookId to comment on:<br>
+        bookId to comment on:<br>
         <input type="text" name="id" value="" id="idinputtest"><br>
         Comment:<br>
         <input type="text" name="comment" value=""><br>
@@ -72,7 +72,7 @@
       </form>
       <div id='display'></div>          
       <div id='bookDetail' class='border'>
-        <p id='detailTitle'>Select a book to see it's details and comments</p>
+        <p id='detailTitle'>Select a book to see its details and comments</p>
         <ol id='detailComments'></ol>
       </div>
       <button id='deleteAllBooks'>Delete all books...</button>
