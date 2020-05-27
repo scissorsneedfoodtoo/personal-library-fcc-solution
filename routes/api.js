@@ -17,7 +17,7 @@ module.exports = function (app) {
   app.route('/api/books')
     .get((req, res) => {
       MongoClient.connect(CONNECTION_STRING, { useUnifiedTopology: true }, (err, client) => {
-        const db = client.db('personalLibrary');
+        const db = client.db('personal-library-v0');
         const collection = db.collection('books');
         collection.find().toArray((err, books) => {
           books.forEach(book => {
@@ -37,11 +37,11 @@ module.exports = function (app) {
         res.send('Missing title');
       } else {
         MongoClient.connect(CONNECTION_STRING, { useUnifiedTopology: true }, (err, client) => {
-          const db = client.db('personalLibrary');
+          const db = client.db('personal-library-v0');
           const collection = db.collection('books');
           const doc = { title: title, comments: [] };
 
-          collection.findOne(doc, (err, result) => {
+          collection.findOne({ title: doc.title }, (err, result) => {
             // Exit if title already exists in library
             if (result) return res.send('Title already exists');
 
@@ -55,7 +55,7 @@ module.exports = function (app) {
 
     .delete((req, res) => {
       MongoClient.connect(CONNECTION_STRING, { useUnifiedTopology: true }, (err, client) => {
-        const db = client.db('personalLibrary');
+        const db = client.db('personal-library-v0');
         const collection = db.collection('books');
         collection.deleteMany({});
 
@@ -69,7 +69,7 @@ module.exports = function (app) {
       // Must convert param string to Mongo object Id to search for it in db
       const oid = new ObjectId(bookId);
       MongoClient.connect(CONNECTION_STRING, { useUnifiedTopology: true }, (err, client) => {
-        const db = client.db('personalLibrary');
+        const db = client.db('personal-library-v0');
         const collection = db.collection('books');
 
         collection.find({ _id: oid }).toArray((err, result) => {
@@ -93,13 +93,13 @@ module.exports = function (app) {
       if (!comment) return res.send('Missing comment');
 
       MongoClient.connect(CONNECTION_STRING, { useUnifiedTopology: true }, (err, client) => {
-        const db = client.db('personalLibrary');
+        const db = client.db('personal-library-v0');
         const collection = db.collection('books');
 
         collection.findOneAndUpdate(
           {_id: oid},
           {$push: { comments: comment }},
-          {returnOriginal: false},
+          { returnOriginal: false },
           (err, result) => {
             res.json(result.value);
           });
@@ -112,7 +112,7 @@ module.exports = function (app) {
       const oid = new ObjectId(bookId);
 
       MongoClient.connect(CONNECTION_STRING, { useUnifiedTopology: true }, (err, client) => {
-        const db = client.db('personalLibrary');
+        const db = client.db('personal-library-v0');
         const collection = db.collection('books');
 
         collection.findOneAndDelete({ _id: oid }, (err, result) => {
